@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme 1 - AI for Collaborative Assessment in STEM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .back-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: white;
+            color: #2c3e50;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .theme-label {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 800px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 0;
+            padding: 0 2rem 4rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Description Card */
+        .description-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .description-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px 0 0 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 40px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .description-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Key Focus Areas */
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .focus-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e0e6ed;
+            transition: all 0.3s;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            border-color: #667eea;
+        }
+
+        .focus-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .focus-card h3 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .focus-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Developers Section */
+        .developers-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .developers-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .developers-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+
+        .developers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .developer-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .developer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .developer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .developer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .developer-photo {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 4px solid white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .developer-card h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .developer-role {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .developer-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .description-card {
+                padding: 2rem;
+            }
+
+            .developers-section {
+                padding: 2rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-bar">
+        <div class="nav-content">
+            <div class="nav-title">STEM AI Hackathon 2025</div>
+            <a href="javascript:window.close()" class="back-link">← Back to Main</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <span class="theme-label">THEME 01</span>
+            <h1>AI for Collaborative Assessment in STEM</h1>
+            <p class="header-subtitle">Transforming evaluation through intelligent, transparent, and fair assessment systems</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Description Card -->
+        <div class="description-card">
+            <h2 class="section-title">Theme Overview</h2>
+            <p class="description-text">
+                This theme explores how AI systems can support peer-based, group, and project-led assessment in STEM education. The focus is on fairness, transparency, and feedback quality, enabling learners and instructors to evaluate process, contribution, and learning outcomes beyond individual, exam-centric metrics.
+            </p>
+
+            <!-- Key Focus Areas -->
+            <div class="focus-areas">
+                <div class="focus-card">
+                    <div class="focus-icon">🤝</div>
+                    <h3>Peer Assessment</h3>
+                    <p>Support collaborative evaluation processes that encourage peer learning and feedback</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">⚖️</div>
+                    <h3>Fairness & Transparency</h3>
+                    <p>Ensure equitable assessment with clear criteria and explainable AI decisions</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">📊</div>
+                    <h3>Beyond Exams</h3>
+                    <p>Evaluate holistic learning outcomes including process and contribution</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Developers Section -->
+        <div class="developers-section">
+            <h2>Theme Developers</h2>
+            <p class="developers-subtitle">Meet the experts guiding this theme</p>
+            
+            <div class="developers-grid">
+                <div class="developer-card">
+                    <div class="developer-photo">Add Photo</div>
+                    <h3>Developer Name</h3>
+                    <div class="developer-role">Role / Position</div>
+                    <p>Add information and details about the developer's expertise and background here</p>
+                </div>
+                <div class="developer-card">
+                    <div class="developer-photo">Add Photo</div>
+                    <h3>Developer Name</h3>
+                    <div class="developer-role">Role / Position</div>
+                    <p>Add information and details about the developer's expertise and background here</p>
+                </div>
+                <div class="developer-card">
+                    <div class="developer-photo">Add Photo</div>
+                    <h3>Developer Name</h3>
+                    <div class="developer-role">Role / Position</div>
+                    <p>Add information and details about the developer's expertise and background here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
