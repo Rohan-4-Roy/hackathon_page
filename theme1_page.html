@@ -343,10 +343,25 @@
         }
 
         .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .teams-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 320px;
+        padding: 1.5rem;
+    }
+}
+
+
 
         .team-card {
             background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
